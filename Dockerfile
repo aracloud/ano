@@ -12,4 +12,5 @@ RUN apt update && \
     pip install bigsuds f5-sdk && \
     pip install pyopenssl && \
     pip install netaddr deepdiff && \
-    apt install vim curl -y
+    apt install vim curl -y && \
+    adduser --disabled-password --gecos "" ndee
