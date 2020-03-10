@@ -2,6 +2,8 @@ FROM ubuntu
 
 MAINTAINER aracloud <aracloud@gmx.net>
 
+ENV SYSUSER ndee
+
 RUN apt update && \
     apt install git -y  && \
     apt install python-pip -y && \
@@ -14,4 +16,7 @@ RUN apt update && \
     pip install netaddr deepdiff && \
     pip install pyvmomi && \
     apt install vim curl -y && \
-    adduser --disabled-password --gecos "" ndee
+    adduser --disabled-password --gecos "" ndee && \
+    mkdir /home/${SYSUSER}/gitrepo && \
+    chown ${SYSUSER}.${SYSUSER} /home/${SYSUSER}/gitrepo
+
