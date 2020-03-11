@@ -3,6 +3,9 @@ FROM ubuntu
 MAINTAINER aracloud <aracloud@gmx.net>
 
 ENV SYSUSER ndee
+ENV VMWFILE VMware-ovftool-4.3.0-7948156-lin.x86_64.bundle
+
+COPY files/${VMWFILE} /tmp/
 
 RUN apt update && \
     apt install git -y  && \
@@ -18,5 +21,6 @@ RUN apt update && \
     apt install vim curl -y && \
     adduser --disabled-password --gecos "" ndee && \
     mkdir /home/${SYSUSER}/gitrepo && \
-    chown ${SYSUSER}.${SYSUSER} /home/${SYSUSER}/gitrepo
+    chown ${SYSUSER}.${SYSUSER} /home/${SYSUSER}/gitrepo && \
+    sh /tmp/${VMWFILE} --console --required --eulas-agreed
 
