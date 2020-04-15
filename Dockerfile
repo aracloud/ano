@@ -18,7 +18,10 @@ RUN apt update && \
     pip install pyopenssl && \
     pip install netaddr deepdiff && \
     pip install pyvmomi && \
-    apt install vim curl -y && \
+    apt install vim curl unzip jq -y && \
+    cd /root/ && \
+    curl -LO https://raw.github.com/robertpeteuil/terraform-installer/master/terraform-install.sh && \
+    chmod +x terraform-install.sh && \
     adduser --disabled-password --gecos "" ndee && \
     mkdir /home/${SYSUSER}/gitrepo && \
     chown ${SYSUSER}.${SYSUSER} /home/${SYSUSER}/gitrepo && \
