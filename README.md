@@ -1,2 +1,4 @@
-# ano
-automation and orchestration
+# ano container
+- OVF tool for ESXi OVA image deplyoment
+- ansible
+- terraform
