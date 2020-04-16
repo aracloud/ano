@@ -22,6 +22,7 @@ RUN apt update && \
     cd /root/ && \
     curl -LO https://raw.github.com/robertpeteuil/terraform-installer/master/terraform-install.sh && \
     chmod +x terraform-install.sh && \
+    ./terraform-install.sh && \
     adduser --disabled-password --gecos "" ndee && \
     mkdir /home/${SYSUSER}/gitrepo && \
     chown ${SYSUSER}.${SYSUSER} /home/${SYSUSER}/gitrepo && \
